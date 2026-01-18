@@ -17,3 +17,12 @@ const PantsPage = async ({ params }: Props) => {
 };
 
 export default PantsPage;
+
+// 함수명은 nextjs에서 정해준 규격 사항임
+// 미리 페이지 만듦 (빌드시)
+export const generateStaticParams = () => {
+  const products = ["pants", "skirt"];
+  return products.map((product) => ({
+    slug: product,
+  }));
+};
