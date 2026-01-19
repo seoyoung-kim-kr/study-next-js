@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const ProductLayout = ({
@@ -8,8 +9,8 @@ const ProductLayout = ({
   return (
     <>
       <nav>
-        <a href="#">여성옷</a>
-        <a href="#">남성옷</a>
+        <Link href="#">여성옷</Link>
+        <Link href="#">남성옷</Link>
       </nav>
       <section>{children}</section>
     </>
