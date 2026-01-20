@@ -27,3 +27,10 @@ export const generateStaticParams = () => {
     slug: product,
   }));
 };
+
+export async function generateMetadata({ params }: Props) {
+  const { slug } = await params;
+  return {
+    title: `제품의 이름 ${slug}`,
+  };
+}
