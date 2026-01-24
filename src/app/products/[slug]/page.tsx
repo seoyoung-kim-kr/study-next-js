@@ -2,6 +2,8 @@ import { getProduct, getProducts } from "@/service/products";
 import { notFound } from "next/navigation";
 import React from "react";
 
+export const revalidate = 3;
+
 // slug : 내가 설정한 동적 라우터 이름
 // 13+ 버전에서는 App Router의 동적 라우트 params가 비동기 처리되어야 함
 // - params가 Promise로 반환됨
