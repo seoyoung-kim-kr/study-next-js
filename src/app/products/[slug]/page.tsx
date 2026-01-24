@@ -1,3 +1,5 @@
+import { getProduct, getProducts } from "@/service/products";
+import { notFound } from "next/navigation";
 import React from "react";
 
 // slug : 내가 설정한 동적 라우터 이름
@@ -12,25 +14,22 @@ type Props = {
 
 const PantsPage = async ({ params }: Props) => {
   const { slug } = await params;
-  console.log(slug);
+  const product = getProduct(slug);
+
+  if (!product) {
+    notFound();
+  }
+  // 서버 파일에 있는 데이터중 해당 제품의 정보를 찾아서 그걸 보여줌
   return <div>{slug}제품설명페이지</div>;
 };
 
 export default PantsPage;
 
-// 함수명은 nextjs에서 정해준 규격 사항임
-// 미리 페이지 만듦 (빌드시)
-// 동적 라우트의 정적 페이지 생성
-export const generateStaticParams = () => {
-  const products = ["pants", "skirt"];
+export async function generateMetadata({ params }: Props) {
+  // 모든 제품의 페이즈들을 미리 만들어 둘 수 있게 해줄거임 (SSG)
+  const { slug } = await params;
+  const products = getProducts();
   return products.map((product) => ({
     slug: product,
   }));
-};
-
-export async function generateMetadata({ params }: Props) {
-  const { slug } = await params;
-  return {
-    title: `제품의 이름 ${slug}`,
-  };
 }
