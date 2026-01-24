@@ -6,22 +6,23 @@ import MeowArticle from "@/components/MeowArticle";
 // export const revalidate = 3;
 
 const ProductsPage = async () => {
-  // 서버 파일(데이터베이스)에 있는 제품의 리스트를 읽어와서, 그걸 보여줌
-  const products = await getProducts();
+  throw new Error();
+  // // 서버 파일(데이터베이스)에 있는 제품의 리스트를 읽어와서, 그걸 보여줌
+  // const products = await getProducts();
 
-  return (
-    <div>
-      product 페이지
-      <ul>
-        {products.map(({ id, name }, idx) => (
-          <li key={idx}>
-            <Link href={`/products/${id}`}>{name}</Link>
-          </li>
-        ))}
-      </ul>
-      <MeowArticle />
-    </div>
-  );
+  // return (
+  //   <div>
+  //     product 페이지
+  //     <ul>
+  //       {products.map(({ id, name }, idx) => (
+  //         <li key={idx}>
+  //           <Link href={`/products/${id}`}>{name}</Link>
+  //         </li>
+  //       ))}
+  //     </ul>
+  //     <MeowArticle />
+  //   </div>
+  // );
 };
 
 export default ProductsPage;
