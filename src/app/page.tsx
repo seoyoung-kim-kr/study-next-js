@@ -14,6 +14,7 @@ export default function Home() {
         alt="shop"
         width={400}
         height={400}
+        priority //이 이미지가 가장 중요하니 먼저 렌더링 하라는 뜻
       />
     </>
   );
