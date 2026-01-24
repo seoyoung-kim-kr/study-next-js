@@ -5,6 +5,7 @@ export type Product = {
   id: string;
   name: string;
   price: number;
+  image: string;
 };
 
 // Promise return, 그 Promise가 리턴해주는 타입은 Product 배열
