@@ -10,8 +10,8 @@ const ProductsPage = async () => {
   const res = await fetch("https://meowfacts.herokuapp.com", {
     // 3초 뒤에 데이터 또 가져와 줘 : 자동 ISR
     // 0으로 하면 요청할 때 마다 렌더링 됨 (SSR)
+    // cacte : "no-store"도 동일
     next: { revalidate: 3 },
-    // cacthe :
   });
   const data = await res.json();
   const factText = data.data[0];
