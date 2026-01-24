@@ -2,17 +2,17 @@ import React from "react";
 import Link from "next/link";
 import { getProducts } from "@/service/products";
 
-const ProductsPage = () => {
+const ProductsPage = async () => {
   // 서버 파일(데이터베이스)에 있는 제품의 리스트를 읽어와서, 그걸 보여줌
-  const products = getProducts();
+  const products = await getProducts();
 
   return (
     <div>
       product 페이지
       <ul>
-        {products.map((product, idx) => (
+        {products.map(({ id, name }, idx) => (
           <li key={idx}>
-            <Link href={`/products/${product}`}>{product}</Link>
+            <Link href={`/products/${id}`}>{name}</Link>
           </li>
         ))}
       </ul>

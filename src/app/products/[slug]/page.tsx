@@ -14,13 +14,13 @@ type Props = {
 
 const PantsPage = async ({ params }: Props) => {
   const { slug } = await params;
-  const product = getProduct(slug);
+  const product = await getProduct(slug);
 
   if (!product) {
     notFound();
   }
   // 서버 파일에 있는 데이터중 해당 제품의 정보를 찾아서 그걸 보여줌
-  return <div>{slug}제품설명페이지</div>;
+  return <div>{product.name} 제품 설명페이지</div>;
 };
 
 export default PantsPage;
@@ -28,8 +28,8 @@ export default PantsPage;
 export async function generateMetadata({ params }: Props) {
   // 모든 제품의 페이즈들을 미리 만들어 둘 수 있게 해줄거임 (SSG)
   const { slug } = await params;
-  const products = getProducts();
+  const products = await getProducts();
   return products.map((product) => ({
-    slug: product,
+    slug: product.id,
   }));
 }
