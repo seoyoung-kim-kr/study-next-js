@@ -5,7 +5,18 @@ import { default as Counter } from "@/components/Counter";
 export default function Home() {
   console.log("안녕!"); //이것도 서버에 찍힘
 
-  return <Counter />;
+  return (
+    <>
+      <Counter />
+      {/* 외부 이미지의 경우 width, height props 전달 + next.config.ts 설정 필수 */}
+      <Image
+        src="https://images.unsplash.com/photo-1441986300917-64674bd600d8"
+        alt="shop"
+        width={400}
+        height={400}
+      />
+    </>
+  );
 }
 
 // 클라이언트 컴포넌트는 가장 작은 단위로, 재사용 가능한 부분에만
