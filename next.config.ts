@@ -26,6 +26,19 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  // 복잡한 URL, 보안상 보여지면 안되는 값들/URL들을 대체하는 URL
+  async rewrites() {
+    return [
+      {
+        source: "/seoyoung",
+        destination: "/about/me/seoyoung",
+      },
+      {
+        source: "/items/:slug",
+        destination: "/products/:slug",
+      },
+    ];
+  },
 };
 
 export default nextConfig;
