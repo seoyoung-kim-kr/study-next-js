@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en" className={sans.className}>
       <body>
         <header className={gothic.className}>
-          Demo note
+          Demo note [v2]
           <nav>
             <Link href="/products">Products</Link>
           </nav>
